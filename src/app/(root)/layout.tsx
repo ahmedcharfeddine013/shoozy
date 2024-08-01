@@ -5,7 +5,7 @@ const UserRoot = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Nav />
-      {children}
+      <div className="pt-20">{children}</div>
     </div>
   );
 };
