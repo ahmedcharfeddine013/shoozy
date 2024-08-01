@@ -5,7 +5,9 @@ import React from "react";
 const ShopButton = () => {
   return (
     <Link href={"/shop"}>
-      <Button>Shop</Button>
+      <Button className="bg-primary text-white p-3 rounded-full hover:p-4 duration-100 transition-all ease-in ">
+        Shop
+      </Button>
     </Link>
   );
 };
