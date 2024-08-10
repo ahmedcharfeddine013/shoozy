@@ -67,17 +67,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-@layer utilities {
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
-
-  .nav-height {
-    @apply h-[calc(100vh-60px)];
-  }
-}
-
-.hero_background_img {
-  background-image: url("/public/assets/images/hero_img.jpg");
-}
