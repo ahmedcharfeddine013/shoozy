@@ -11,11 +11,11 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Link href={`/shop/product/${product.id}`}>
       <Card className="w-fit outline-none border-none grid grid-rows-5 gap-6 h-[300px] group overflow-hidden p-4">
-        <div className="flex items-center justify-center md:h-full md:w-[300px] row-span-3 overflow-hidden">
+        <div className="flex items-center justify-center md:h-full md:w-[250px] row-span-3 overflow-hidden">
           <Image
             src={product.img}
             alt={product.title}
-            width={150}
+            width={120}
             height={200}
             className="group-hover:scale-105 duration-100 transition-all ease-in"
           />

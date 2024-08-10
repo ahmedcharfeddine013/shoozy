@@ -7,7 +7,9 @@ const ShopPage = () => {
   return (
     <div>
       <Sidebar handleChange={() => {}} />
-      <Products products={data} />
+      <div className="ml-[15%]">
+        <Products products={data} />
+      </div>
     </div>
   );
 };
