@@ -9,7 +9,7 @@ import { CiShoppingCart } from "react-icons/ci";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <Link href={`/shop/product/${product.title}`}>
+    <Link href={`/shop/product/${product.id}`}>
       <Card className="w-fit outline-none border-none flex items-center justify-center flex-col gap-6 h-[300px] group">
         <div className="flex items-center justify-center h-full">
           <Image

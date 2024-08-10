@@ -1,7 +1,8 @@
 interface Product {
+  id: number;
   img: string;
   title: string;
-  star: ReactNode; // To represent JSX elements like <AiFillStar />
+  star: ReactNode;
   reviews: string;
   prevPrice: string;
   newPrice: string;
