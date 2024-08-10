@@ -5,7 +5,7 @@ import { Button, ButtonGroup } from "@nextui-org/button";
 
 const Hero = () => {
   return (
-    <>
+    <div className="flex items-center justify-center w-full">
       <section className="w-full md:block hidden nav-height mx-3 relative">
         <div className="h-5/6 w-full flex-col flex-center">
           <div className="md:w-10/12 w-9/12 rounded-3xl overflow-hidden">
@@ -16,16 +16,6 @@ const Hero = () => {
         </div>
       </section>
       <section className="md:hidden h-[85vh] bg-hero-image">
-        {/* <div className="-z-10">
-          <Image
-            src={heroImg}
-            height={300}
-            width={300}
-            objectFit="cover"
-            alt="hero background image"
-            className="h-full w-screen"
-          />
-        </div> */}
         <div className="absolute z-50 top-52 left-6 bg-white/30 ">
           <h1 className="text-6xl text-black font-bold">
             Discover our luxuary
@@ -33,7 +23,7 @@ const Hero = () => {
           <Button></Button>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

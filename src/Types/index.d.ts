@@ -11,4 +11,8 @@ interface Product {
   category: string;
 }
 
-export type { Product };
+interface filterProps {
+  handleChange: () => void;
+}
+
+export type { Product, filterProps };
