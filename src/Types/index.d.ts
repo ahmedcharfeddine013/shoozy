@@ -11,8 +11,10 @@ interface Product {
   category: string;
 }
 
-interface filterProps {
-  handleChange: () => void;
+export interface filterProps {
+  handleChange: (
+    event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+  ) => void;
 }
 
 export type { Product, filterProps };
