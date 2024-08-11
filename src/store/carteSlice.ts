@@ -1,5 +1,3 @@
-
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "@/Types";
 
@@ -45,6 +43,8 @@ const cartSlice = createSlice({
 
 export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
-const cartReducer = cartSlice.reducer
+const cartReducer = cartSlice.reducer;
 
-export default cartReducer
+export default cartReducer;
+
+export type { cartItem };

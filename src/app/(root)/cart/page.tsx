@@ -3,6 +3,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import CartItem from "@/components/cart/CartItem";
 
 const Cart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -13,12 +14,7 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        cartItems.map(({ product, quantity }) => (
-          <div key={product.id}>
-            <p>{product.title}</p>
-            <p>{quantity}</p>
-          </div>
-        ))
+        cartItems.map((item) => <CartItem key={item.product.id} item={item} />)
       )}
     </div>
   );
