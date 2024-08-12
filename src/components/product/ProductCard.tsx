@@ -1,7 +1,7 @@
 "use client";
 
 import { Product } from "@/Types";
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardFooter } from "../ui/card";
 import Image from "next/image";
 import { formatCurrency, truncate } from "@/lib/formatters";
@@ -9,13 +9,24 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { CiShoppingCart } from "react-icons/ci";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/carteSlice";
+import { addToCart } from "@/store/cartSlice";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
+
+  const handleIncrease = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ product, quantity }));
   };
 
   return (
@@ -42,13 +53,19 @@ const ProductCard = ({ product }: { product: Product }) => {
               {formatCurrency(parseFloat(product.newPrice))}
             </h1>
           </div>
-          <Button
-            className="w-full flex items-center justify-center gap-2"
-            onClick={handleAddToCart}
-          >
-            <p className="hidden md:block">Add To Cart</p>
-            <CiShoppingCart size={24} />
-          </Button>
+          <div className="flex items-center gap-2 justify-between">
+            <div className="flex items-center justify-center gap-1 ">
+              <Button onClick={handleDecrease}>-</Button>
+              <span>{quantity}</span>
+              <Button onClick={handleIncrease}>+</Button>
+            </div>
+            <Button
+              className="w-fit flex items-center justify-center gap-2"
+              onClick={handleAddToCart}
+            >
+              <CiShoppingCart size={24} />
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </>

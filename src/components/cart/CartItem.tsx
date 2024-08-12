@@ -1,40 +1,34 @@
-import { cartItem } from "@/store/carteSlice";
+import { cartItem } from "@/store/cartSlice";
 import React from "react";
 import { Card } from "../ui/card";
 import Image from "next/image";
 import { formatCurrency } from "../../lib/formatters";
+import { TableCell, TableRow } from "../ui/table";
+import { Button } from "../ui/button";
+import { IoIosClose } from "react-icons/io";
 
 const CartItem = ({ item }: { item: cartItem }) => {
-  const product = item.product;
+  const product = item;
 
   const totalProductPricing = item.quantity * parseFloat(product.newPrice);
 
   return (
-    <Card>
-      <div className="flex flex-row items-start justify-start gap-4">
-        <div>
-          <Image
-            src={product.img}
-            alt={product.title}
-            height={100}
-            width={100}
-          />
-        </div>
-        <div>
-          <h2 className="text-lg font-light">{product.title}</h2>
-          <div>
-            <h4 className="">Quantity: </h4>
-            <h1 className="text-lg font-bold">{item.quantity}</h1>
-          </div>
-          <div>
-            <h4>Total product price: </h4>
-            <h1 className="text-lg font-bold">
-              {formatCurrency(totalProductPricing)}
-            </h1>
-          </div>
-        </div>
-      </div>
-    </Card>
+    <TableRow>
+      <TableCell>
+        <Image src={product.img} alt={product.title} height={100} width={100} />
+      </TableCell>
+
+      <TableCell>{product.title}</TableCell>
+      <TableCell>{item.quantity}</TableCell>
+      <TableCell>
+        <Button>
+          <IoIosClose size={24} />
+        </Button>
+      </TableCell>
+      <TableCell className="text-lg font-bold">
+        {formatCurrency(totalProductPricing)}
+      </TableCell>
+    </TableRow>
   );
 };
 
