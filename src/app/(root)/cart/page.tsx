@@ -11,13 +11,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { selectTotalPrice } from "@/store/cartSlice";
+import { formatCurrency } from "@/lib/formatters";
+import { Button } from "@/components/ui/button";
 
 const Cart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalPrice = useSelector(selectTotalPrice);
 
   return (
     <div>
-      <div className="flex items-start justify-center flex-col m-10">
+      <div className="flex items-start justify-start flex-col m-10  border-2 p-4">
         <h2 className="text-3xl font-bold">Your Cart</h2>
 
         {cartItems.length === 0 ? (
@@ -40,6 +44,15 @@ const Cart = () => {
             </TableBody>
           </Table>
         )}
+        <div className="flex items-center justify-between w-full mt-10">
+          <div className=" text-xl space-x-2 flex flex-row items-center justify-center">
+            <h2>Total Price:</h2>
+            <span className="text-2xl font-bold">
+              {formatCurrency(totalPrice)}
+            </span>
+          </div>
+          <Button disabled={totalPrice === 0}>Checkout</Button>
+        </div>
       </div>
     </div>
   );

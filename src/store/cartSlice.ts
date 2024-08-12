@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "@/Types";
+import { RootState } from "@/redux/store";
 
 interface cartItem extends Product {
   quantity: number;
@@ -51,3 +52,10 @@ const cartReducer = cartSlice.reducer;
 
 export default cartReducer;
 export type { cartItem };
+
+export const selectTotalPrice = (state: RootState) => {
+  return state.cart.items.reduce(
+    (total, item) => total + parseFloat(item.newPrice) * item.quantity,
+    0
+  );
+};
