@@ -32,7 +32,10 @@ const ProductCard = ({ product }: { product: Product }) => {
   return (
     <>
       <Card className="w-fit outline-none border-none grid grid-rows-5 gap-6 h-[300px] group overflow-hidden p-4">
-        <div className="flex items-center justify-center md:h-full md:w-[250px] row-span-3 overflow-hidden">
+        <Link
+          href={`/product/${product.id}`}
+          className="flex items-center justify-center md:h-full md:w-[250px] row-span-3 overflow-hidden"
+        >
           <Image
             src={product.img}
             alt={product.title}
@@ -40,7 +43,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             height={200}
             className="group-hover:scale-105 duration-100 transition-all ease-in"
           />
-        </div>
+        </Link>
         <CardFooter className="h-fit flex items-center justify-center flex-col gap-3 w-full">
           <div className="flex md:items-center items-start justify-between w-full md:flex-row flex-col">
             <h3 className="text-gray-700 text-sm font-light md:hidden">
