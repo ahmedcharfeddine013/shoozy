@@ -10,10 +10,14 @@ import { Button } from "../ui/button";
 import { CiShoppingCart } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/cartSlice";
+import { useTransition } from "react";
+import { useToast } from "../ui/use-toast";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
+  const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
@@ -27,6 +31,9 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product, quantity }));
+    toast({
+      title: `${product.title} added successfully to the cart!`,
+    });
   };
 
   return (
@@ -56,11 +63,15 @@ const ProductCard = ({ product }: { product: Product }) => {
               {formatCurrency(parseFloat(product.newPrice))}
             </h1>
           </div>
-          <div className="flex items-center gap-2 justify-between">
-            <div className="flex items-center justify-center gap-1 ">
-              <Button onClick={handleDecrease}>-</Button>
+          <div className="flex items-center gap-4 justify-between">
+            <div className="flex items-center justify-center gap-2 border-2 rounded-lg border-primary ">
+              <Button onClick={handleDecrease} className="text-xl rounded-none">
+                -
+              </Button>
               <span>{quantity}</span>
-              <Button onClick={handleIncrease}>+</Button>
+              <Button onClick={handleIncrease} className="text-xl rounded-none">
+                +
+              </Button>
             </div>
             <Button
               className="w-fit flex items-center justify-center gap-2"

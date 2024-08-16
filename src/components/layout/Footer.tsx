@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div
       id="footer"
-      className="flex items-center flex-col bg-black text-white gap-5 justify-between border-t-2"
+      className="flex items-center flex-col bg-primary text-white gap-5 justify-between border-t-2"
     >
       <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 p-20 pb-6 justify-items-start lg:justify-items-center gap-5">
         <div className="space-y-2">

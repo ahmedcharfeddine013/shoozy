@@ -1,10 +1,14 @@
+"use client";
+
+import { cn } from "@/lib/utils";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ShopButton = () => {
-  
   const [isFixed, setIsFixed] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,9 +35,11 @@ const ShopButton = () => {
     <Link
       href={"/shop"}
       id="shop-button"
-      className={`${
-        !isFixed ? "absolute bottom-6 right-6 z-50" : "fixed bottom-6 right-6"
-      } transition-all duration-300 ease-in-out`}
+      className={cn(
+        "transition-all duration-300 ease-in-out",
+        !isFixed ? "absolute bottom-6 right-6 z-50" : "fixed bottom-6 right-6",
+        pathname === "/cart" ? "hidden" : "block"
+      )}
     >
       <Button className="bg-primary text-white p-3 rounded-full hover:p-4 duration-100 transition-all ease-in ">
         Shop

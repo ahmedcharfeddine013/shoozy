@@ -6,6 +6,7 @@ import ShopButton from "../../components/layout/ShopButton";
 import Footer from "@/components/layout/Footer";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
+import { Toaster } from "@/components/ui/toaster";
 
 const UserRoot = ({ children }: { children: ReactNode }) => {
   return (
@@ -14,8 +15,8 @@ const UserRoot = ({ children }: { children: ReactNode }) => {
       <div className="pt-20 relative">
         {children} <ShopButton />
       </div>
-
       <Footer />
+      <Toaster />
     </Provider>
   );
 };

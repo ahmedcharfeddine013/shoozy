@@ -11,15 +11,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { selectTotalPrice } from "@/store/cartSlice";
+import { cartItem, selectTotalPrice } from "@/store/cartSlice";
 import { formatCurrency } from "@/lib/formatters";
-import { Button } from "@/components/ui/button";
-import { loadStripe } from "@stripe/stripe-js";
 import CheckoutButton from "@/components/cart/CheckoutButton";
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-);
 
 const Cart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -27,7 +21,7 @@ const Cart = () => {
 
   return (
     <div>
-      <div className="flex items-start justify-start flex-col m-10  border-2 p-4">
+      <div className="flex items-start justify-start flex-col mx-10 mb-20  border-2 p-4 min-h-[40vh]">
         <h2 className="text-3xl font-bold">Your Cart</h2>
 
         {cartItems.length === 0 ? (
@@ -44,7 +38,7 @@ const Cart = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {cartItems.map((item) => (
+              {cartItems.map((item: cartItem) => (
                 <CartItem key={item.id} item={item} />
               ))}
             </TableBody>
