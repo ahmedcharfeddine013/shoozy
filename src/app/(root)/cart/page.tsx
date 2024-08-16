@@ -14,6 +14,12 @@ import {
 import { selectTotalPrice } from "@/store/cartSlice";
 import { formatCurrency } from "@/lib/formatters";
 import { Button } from "@/components/ui/button";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutButton from "@/components/cart/CheckoutButton";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
+);
 
 const Cart = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -51,7 +57,7 @@ const Cart = () => {
               {formatCurrency(totalPrice)}
             </span>
           </div>
-          <Button disabled={totalPrice === 0}>Checkout</Button>
+          <CheckoutButton />
         </div>
       </div>
     </div>

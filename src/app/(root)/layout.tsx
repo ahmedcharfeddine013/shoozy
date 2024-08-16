@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Nav from "@/components/layout/Navbar";
 import React, { ReactNode } from "react";
