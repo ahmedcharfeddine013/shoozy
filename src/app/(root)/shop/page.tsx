@@ -28,7 +28,7 @@ const ShopPage = () => {
   const products = filteredData();
 
   return (
-    <div>
+    <div className="relative">
       <Sidebar handleChange={handleChange} />
       <div className="ml-[15%]">
         <Products products={products} />
