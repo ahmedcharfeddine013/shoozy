@@ -8,8 +8,8 @@ import { Button } from "../ui/button";
 import { IoIosClose } from "react-icons/io";
 
 const CartItem = ({ item }: { item: cartItem }) => {
+  
   const product = item;
-
   const totalProductPricing = item.quantity * parseFloat(product.newPrice);
 
   return (
@@ -17,7 +17,6 @@ const CartItem = ({ item }: { item: cartItem }) => {
       <TableCell>
         <Image src={product.img} alt={product.title} height={100} width={100} />
       </TableCell>
-
       <TableCell>{product.title}</TableCell>
       <TableCell>{item.quantity}</TableCell>
       <TableCell>
