@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 
 const Sidebar = ({ handleChange }: filterProps) => {
   const [isFixed, setIsFixed] = useState(true);
-  const [isOpened, setIsOpened] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +36,7 @@ const Sidebar = ({ handleChange }: filterProps) => {
       id="sidebar"
       className={cn(
         !isFixed ? "absolute bottom-0" : "fixed top-0 ",
-        "w-[150px] h-screen border-r-2 z-10 flex-col items-center justify-center p-4 gap-3 bg-white",
-        isOpened ? "flex" : "hidden"
+        "w-[150px] h-screen border-r-2 z-10 hidden sm:flex flex-col items-center justify-center p-4 gap-3 bg-white"
       )}
     >
       <Category handleChange={handleChange} />

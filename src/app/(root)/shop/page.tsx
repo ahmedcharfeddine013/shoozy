@@ -36,7 +36,7 @@ const ShopPage = () => {
     <div className="relative">
       <Sidebar handleChange={handleChange} />
       <div className="sm:ml-[150px] space-y-6">
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center sm:hidden">
           <MobileFilter handleChange={handleMobileChange} />
         </div>
         <Products products={products} />
