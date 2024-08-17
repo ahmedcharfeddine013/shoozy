@@ -5,9 +5,11 @@ import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import Price from "./Price";
 import Colors from "./Colors";
+import { cn } from "@/lib/utils";
 
 const Sidebar = ({ handleChange }: filterProps) => {
   const [isFixed, setIsFixed] = useState(true);
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,9 +35,11 @@ const Sidebar = ({ handleChange }: filterProps) => {
   return (
     <section
       id="sidebar"
-      className={`${
-        !isFixed ? "absolute bottom-0" : "fixed top-0 "
-      } w-[15%] h-screen border-r-2 z-10  flex flex-col items-center justify-center p-4 gap-3 bg-white`}
+      className={cn(
+        !isFixed ? "absolute bottom-0" : "fixed top-0 ",
+        "w-[150px] h-screen border-r-2 z-10 flex-col items-center justify-center p-4 gap-3 bg-white",
+        isOpened ? "flex" : "hidden"
+      )}
     >
       <Category handleChange={handleChange} />
     </section>
