@@ -11,6 +11,16 @@ export default function Home() {
       <div className="py-20">
         <NewArrivals />
       </div>
+      <div className="relative">
+        <Image
+          src={"/assets/images/home_banner.jpg"}
+          alt="banner"
+          height={300}
+          width={300}
+          objectFit="cover"
+          className="w-full h-fit"
+        />
+      </div>
     </main>
   );
 }
