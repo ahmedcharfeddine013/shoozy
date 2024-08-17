@@ -5,7 +5,7 @@ import { Button, ButtonGroup } from "@nextui-org/button";
 
 const Hero = () => {
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full relative -mt-10">
       <section className="w-full md:block hidden nav-height mx-3">
         <div className="h-5/6 w-full flex-col flex items-center justify-center ">
           <div className="md:w-10/12 w-9/12 rounded-3xl overflow-hidden">
