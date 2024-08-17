@@ -1,10 +1,8 @@
-// src/app/api/checkout/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2024-06-20", // Ensure this is the correct API version
+  apiVersion: "2024-06-20",
 });
 
 export async function POST(req: NextRequest) {
@@ -20,7 +18,7 @@ export async function POST(req: NextRequest) {
           product_data: {
             name: item.title,
           },
-          unit_amount: Math.round(item.newPrice * 100), // Convert price to cents
+          unit_amount: Math.round(item.newPrice * 100), 
         },
         quantity: item.quantity,
       })),

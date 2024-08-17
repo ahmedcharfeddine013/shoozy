@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ShopButton = () => {
-  const [isFixed, setIsFixed] = useState(true);
+  const [isFixed, setIsFixed] = useState<Boolean>();
   const pathname = usePathname();
 
   useEffect(() => {
